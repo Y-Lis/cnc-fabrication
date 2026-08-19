@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуга | CNC Fabrication</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="particles-bg"></div>
+
+    <header id="main-header">
+        <a href="index.html" class="logo">
+            <svg style="width: 24px; height: 24px; fill: var(--accent-steel);" viewBox="0 0 24 24"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg>
+            CNC FABRICATION
+        </a>
+        
+        <button class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav>
+            <a href="index.html" class="nav-link">ГЛАВНАЯ</a>
+            <div class="dropdown">
+                <a class="nav-link">УСЛУГИ ▾</a>
+                <div class="dropdown-content">
+                    <a onclick="changeService('cases-panels')">Корпусные детали и панели</a>
+                    <a onclick="changeService('prototypes-rnd')">Прототипы и R&D (НИОКР)</a>
+                    <a onclick="changeService('tooling-equipment')">Оснастка и инструмент</a>
+                    <a onclick="changeService('general-cnc')">Общие услуги ЧПУ</a>
+                </div>
+            </div>
+            <a href="#contacts" class="nav-link">КОНТАКТЫ</a>
+        </nav>
+        <div class="header-contact">
+            <a href="tel:+77082639395" class="phone">+7 (708) 263-93-95</a>
+            <a href="https://wa.me/77082639395?text=Здравствуйте!%20Хочу%20отправить%20чертеж%20на%20расчет." class="btn btn-outline" target="_blank">WhatsApp</a>
+        </div>
+    </header>
+
+    <main class="service-page">
+        <div class="container">
+            <!-- Главная информация услуги -->
+            <h1 id="serviceTitle" class="service-title">Загрузка...</h1>
+            <p id="serviceMeta" class="service-meta"></p>
+            <div id="serviceDescription" class="service-desc">Пожалуйста, подождите...</div>
+
+            <!-- Детали услуги: что делаем, материалы, сроки -->
+            <div class="service-details-grid" id="serviceDetailsSection" style="display: none;">
+                <div class="service-detail-box">
+                    <h4>Что мы изготавливаем</h4>
+                    <ul id="serviceWhatWeDo" class="service-list">
+                        <!-- JS fills this -->
+                    </ul>
+                </div>
+                <div class="service-detail-box">
+                    <h4>Характеристики и условия</h4>
+                    <ul class="service-specs-list">
+                        <li><strong>Материалы:</strong> <span id="serviceMaterials"></span></li>
+                        <li><strong>Сроки производства:</strong> <span id="serviceTerms"></span></li>
+                        <li><strong>Точность обработки:</strong> допуски до 0.01 мм по вашим КД.</li>
+                        <li><strong>Проектирование:</strong> работа по вашим чертежам, либо создание 3D-моделей нашими инженерами.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Примеры работ (Портфолио услуги) -->
+            <div class="service-portfolio-section" id="servicePortfolioSection" style="display: none;">
+                <h3 class="subsection-title">Примеры наших работ</h3>
+                <div id="servicePortfolio" class="portfolio-grid">
+                    <!-- JS fills this -->
+                </div>
+            </div>
+
+            <!-- Блок CTA -->
+            <div class="cta-box">
+                <h3>Готовы обсудить проект?</h3>
+                <p>Отправьте чертежи в WhatsApp, и мы оперативно подготовим расчет стоимости производства.</p>
+                <a href="#" id="waBtn" class="btn btn-wa" target="_blank" style="padding: 16px 30px; font-size: 0.85rem;">ОТПРАВИТЬ ПРОЕКТ НА РАСЧЁТ</a>
+                <span class="cta-note" style="margin-top: 15px;">* Для оперативного расчёта приложите чертёж/3D-модель, укажите материал и количество.</span>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contacts">
+        <div class="footer-content">
+            <div>
+                <h3>CNC Fabrication</h3>
+                <p>Профессиональная промышленная механическая обработка (ЧПУ) для корпоративного сектора и конструкторских бюро.</p>
+            </div>
+            <div>
+                <h3>НАШИ КОНТАКТЫ</h3>
+                <p>📞 <strong>Телефон:</strong> <a href="tel:+77082639395">+7 (708) 263-93-95</a></p>
+                <p>💬 <strong>WhatsApp:</strong> <a href="https://wa.me/77082639395?text=Здравствуйте!%20Хочу%20отправить%20чертеж%20на%20расчет." target="_blank">+7 (708) 263-93-95</a></p>
+                <p>📍 <strong>Адрес:</strong> г. Алматы, пр. Гагарина, 93а (РПИК Дауыр, 4 этаж)</p>
+                <p style="margin-top: 15px;"><a href="https://go.2gis.com/hn00N" target="_blank" style="color: var(--text-grey); font-size: 0.8rem;">📍 Открыть компанию в 2GIS</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('main-header').classList.toggle('active');
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // База данных услуг с расширенной информацией
+        const servicesDatabase = {
+            "cases-panels": {
+                title: "Корпусные детали и панели",
+                meta: "Высокоточное изготовление корпусов для РЭА и приборостроения",
+                description: "Производим прочные и эстетичные корпуса для электроники, радиаторы охлаждения и лицевые панели. Обеспечиваем идеальную сходимость составных частей, точную нарезку резьб и высокое качество поверхности, готовую к анодированию или покраске.",
+                whatWeDo: ["Герметичные корпуса для РЭА", "Радиаторы охлаждения сложной формы", "Лицевые и приборные панели", "Сложные составные корпуса"],
+                materials: "Алюминиевые сплавы (Д16Т, АМГ, АМЦ), нержавеющая сталь, конструкционные пластики (ABS, полиацеталь).",
+                terms: "от 5 рабочих дней (в зависимости от сложности и объема партии).",
+                ///portfolio: [
+                ///    "1786901099755.jpg",
+                ///    "https://placehold.co/600x400/111316/8a94a6?text=Корпус+2",
+                ///    "https://placehold.co/600x400/111316/8a94a6?text=Радиатор",
+                ///    "https://placehold.co/600x400/111316/8a94a6?text=Панель"
+                ///]
+            },
+            "prototypes-rnd": {
+                title: "Прототипы и R&D",
+                meta: "Изготовление деталей для опытно-конструкторских работ (НИОКР)",
+                description: "Помогаем конструкторским бюро и стартапам быстро проверять гипотезы. Изготавливаем единичные опытные образцы по вашим 3D-моделям для сборки макетов, тестирования кинематики и эргономики. Если у вас нет готовой модели, наши инженеры помогут её разработать.",
+                whatWeDo: ["Функциональные и тестовые прототипы", "Детали для испытательных стендов", "Мастер-модели", "Единичные нестандартные компоненты"],
+                materials: "Сталь, дюралюминий, латунь, капролон, фторопласт, поликарбонат.",
+                terms: "от 3 рабочих дней (ускоренное производство для быстрого тестирования).",
+                portfolio: [
+                    "1786899970247.jpg",
+                    "1786903763473.jpg",
+                    "IMG-20230711-WA0004.jpg",
+                    "1786899965366.jpg"
+                ]
+            },
+            "tooling-equipment": {
+                title: "Технологическая оснастка",
+                meta: "Проектирование и фрезеровка оснастки и инструмента",
+                description: "Производим надежную оснастку для вашего производства. Гарантируем высокую точность, правильную геометрию и долговечность инструмента для серийного производства.",
+                whatWeDo: ["Пресс-формы", "Штампы (пуансоны и матрицы)", "Сверлильные и сборочные кондукторы", "Контрольные приспособления", "Оснастка для серийного производства", "Специальные технологические приспособления"],
+                materials: "Инструментальные и легированные стали (40Х, 45, У8, ХВГ), закаленные материалы (с учетом термообработки).",
+                terms: "от 10 рабочих дней (с учетом возможной термообработки и шлифовки).",
+                portfolio: [
+                    "1786899965513.jpg",
+                    "1786903844905.jpg",
+                    "1786901047847.jpg",
+                    "1786899967912.jpg"
+                ]
+            },
+            "general-cnc": {
+                title: "Общие услуги ЧПУ",
+                meta: "Серийная фрезерная и токарная обработка",
+                description: "Выполняем полный цикл механической обработки деталей. Работаем с партиями от мелких до крупных серий, обеспечивая стабильное качество и повторяемость на всей партии изготавливаемых изделий.",
+                whatWeDo: ["Металлические детали и компоненты", "Корпусные и конструктивные элементы", "Детали для машин и оборудования", "Технологические детали и оснастка"],
+                materials: "Черные и нержавеющие стали, цветные металлы (алюминий, бронза, латунь), конструкционные пластики.",
+                terms: "от 5 рабочих дней (точные сроки формируются после расчета чертежа).",
+                portfolio: [
+                    "IMG_20260516_063525.jpg",
+                    "Image_dv8g0ddv8g0ddv8g.jpg",
+                    "1786899965029.jpg",
+                    "IMG-20260317-WA0007.jpg"
+                ]
+            }
+        };
+
+        const MY_PHONE = "77082639395"; 
+
+        function changeService(slug) {
+            const newUrl = window.location.pathname + '?slug=' + slug;
+            window.history.pushState({path: newUrl}, '', newUrl);
+            loadServiceData();
+            
+            document.getElementById('main-header').classList.remove('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function loadServiceData() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const slug = urlParams.get('slug') || 'cases-panels';
+            const service = servicesDatabase[slug];
+
+            if (!service) {
+                document.getElementById('serviceTitle').innerText = "Услуга не найдена";
+                document.getElementById('serviceDescription').innerText = "К сожалению, запрашиваемая страница не существует.";
+                document.getElementById('serviceDetailsSection').style.display = 'none';
+                document.getElementById('servicePortfolioSection').style.display = 'none';
+                return;
+            }
+
+            document.title = service.title + " | CNC Fabrication";
+            document.getElementById('serviceTitle').innerText = service.title;
+            document.getElementById('serviceMeta').innerText = service.meta;
+            document.getElementById('serviceDescription').innerText = service.description;
+            
+            // Заполнение деталей услуги
+            document.getElementById('serviceDetailsSection').style.display = 'grid';
+            
+            const whatWeDoList = document.getElementById('serviceWhatWeDo');
+            whatWeDoList.innerHTML = service.whatWeDo.map(item => `<li>${item}</li>`).join('');
+            
+            document.getElementById('serviceMaterials').innerText = service.materials;
+            document.getElementById('serviceTerms').innerText = service.terms;
+            
+            // Заполнение портфолио услуги
+            document.getElementById('servicePortfolioSection').style.display = 'block';
+            const portfolioGrid = document.getElementById('servicePortfolio');
+            portfolioGrid.innerHTML = service.portfolio.map(imgSrc => `
+                <div class="portfolio-item">
+                    <img src="${imgSrc}" alt="Пример работы ${service.title}">
+                </div>
+            `).join('');
+
+            // Настройка кнопки WhatsApp
+            const waText = `Здравствуйте! Меня интересует услуга: ${service.title}. Хочу отправить проект на расчет.`;
+            document.getElementById('waBtn').href = `https://wa.me/${MY_PHONE}?text=${encodeURIComponent(waText)}`;
+        }
+
+        // Инициализация при загрузке
+        loadServiceData();
+
+        particlesJS("particles-bg", {
+            "particles": {
+                "number": { "value": 20, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#9fb3c8" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.15, "random": false },
+                "size": { "value": 2, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#9fb3c8", "opacity": 0.05, "width": 1 },
+                "move": { "enable": true, "speed": 0.5, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+            },
+            "interactivity": {
+                "detect_on": "window",
+                "events": { "onhover": { "enable": false }, "onclick": { "enable": false }, "resize": true }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+</html>
