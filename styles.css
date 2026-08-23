@@ -3,10 +3,10 @@
     /* Палитра: Почти черный фон */
     --primary-dark: #030303;
     --secondary-dark: #111316; 
-    --accent-steel: #ffffff;
-    --accent-light: #ffffff;
-    --text-light: #ffffff;
-    --text-grey: #ffffff;
+    --accent-steel: #9fb3c8;
+    --accent-light: #95a0ab;
+    --text-light: #89919c;
+    --text-grey: #8a94a6;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
