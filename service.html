@@ -7,15 +7,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18407514352">
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18407514352"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'AW-18407514352');
-</script>
+      gtag('config', 'AW-18407514352');
+    </script>
+
+    <!-- Event snippet for Просмотр страницы conversion page -->
+    <script>
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-18407514352/ZXeiCI7e8eYCEPDBsclE',
+            'event_callback': callback
+        });
+        return false;
+      }
+    </script>
 </head>
 <body>
 
@@ -48,7 +63,7 @@
         </nav>
         <div class="header-contact">
             <a href="tel:+77082639395" class="phone">+7 (708) 263-93-95</a>
-            <a href="https://wa.me/77082639395?text=Здравствуйте!%20Хочу%20отправить%20чертеж%20на%20расчет." class="btn btn-outline" target="_blank">WhatsApp</a>
+            <a href="https://wa.me/77082639395?text=Здравствуйте!%20Хочу%20отправить%20чертеж%20на%20расчет." class="btn btn-outline" target="_blank" rel="noopener noreferrer" onclick="gtag_report_conversion()">WhatsApp</a>
         </div>
     </header>
 
@@ -90,7 +105,7 @@
             <div class="cta-box">
                 <h3>Готовы обсудить проект?</h3>
                 <p>Отправьте чертежи в WhatsApp, и мы оперативно подготовим расчет стоимости производства.</p>
-                <a href="#" id="waBtn" class="btn btn-wa" target="_blank" style="padding: 16px 30px; font-size: 0.85rem;">ОТПРАВИТЬ ПРОЕКТ НА РАСЧЁТ</a>
+                <a href="#" id="waBtn" class="btn btn-wa" target="_blank" rel="noopener noreferrer" style="padding: 16px 30px; font-size: 0.85rem;" onclick="gtag_report_conversion()">ОТПРАВИТЬ ПРОЕКТ НА РАСЧЁТ</a>
                 <span class="cta-note" style="margin-top: 15px;">* Для оперативного расчёта приложите чертёж/3D-модель, укажите материал и количество.</span>
             </div>
         </div>
@@ -105,9 +120,9 @@
             <div>
                 <h3>НАШИ КОНТАКТЫ</h3>
                 <p>📞 <strong>Телефон:</strong> <a href="tel:+77082639395">+7 (708) 263-93-95</a></p>
-                <p>💬 <strong>WhatsApp:</strong> <a href="https://wa.me/77082639395?text=Здравствуйте!%20Хочу%20отправить%20чертеж%20на%20расчет." target="_blank">+7 (708) 263-93-95</a></p>
+                <p>💬 <strong>WhatsApp:</strong> <a href="https://wa.me/77082639395?text=Здравствуйте!%20Хочу%20отправить%20чертеж%20на%20расчет." target="_blank" rel="noopener noreferrer">+7 (708) 263-93-95</a></p>
                 <p>📍 <strong>Адрес:</strong> г. Алматы, пр. Гагарина, 93а (РПИК Дауыр, 4 этаж)</p>
-                <p style="margin-top: 15px;"><a href="https://go.2gis.com/hn00N" target="_blank" style="color: var(--text-grey); font-size: 0.8rem;">📍 Открыть компанию в 2GIS</a></p>
+                <p style="margin-top: 15px;"><a href="https://go.2gis.com/hn00N" target="_blank" rel="noopener noreferrer" style="color: var(--text-grey); font-size: 0.8rem;">📍 Открыть компанию в 2GIS</a></p>
             </div>
         </div>
     </footer>
@@ -230,6 +245,9 @@
             // Настройка кнопки WhatsApp
             const waText = `Здравствуйте! Меня интересует услуга: ${service.title}. Хочу отправить проект на расчет.`;
             document.getElementById('waBtn').href = `https://wa.me/${MY_PHONE}?text=${encodeURIComponent(waText)}`;
+            
+            // Применяем onclick к динамически сгенерированной кнопке для корректного отслеживания конверсии
+            document.getElementById('waBtn').setAttribute('onclick', 'gtag_report_conversion()');
         }
 
         // Инициализация при загрузке

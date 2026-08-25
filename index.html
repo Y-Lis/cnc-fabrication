@@ -8,15 +8,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18407514352">
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18407514352"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'AW-18407514352');
-</script>
+      gtag('config', 'AW-18407514352');
+    </script>
+    
+    <!-- Event snippet for Просмотр страницы conversion page -->
+    <script>
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-18407514352/ZXeiCI7e8eYCEPDBsclE',
+            'event_callback': callback
+        });
+        return false;
+      }
+    </script>
 </head>
 <body>
 
@@ -51,7 +66,7 @@
         </nav>
         <div class="header-contact">
             <a href="tel:+77082639395" class="phone">+7 (708) 263-93-95</a>
-            <a href="https://wa.me/77082639395?text=Здравствуйте!%20Хочу%20отправить%20чертеж%20на%20расчет." class="btn btn-outline" target="_blank">WhatsApp</a>
+            <a href="https://wa.me/77082639395?text=Здравствуйте!%20Хочу%20отправить%20чертеж%20на%20расчет." class="btn btn-outline" target="_blank" onclick="gtag_report_conversion()">WhatsApp</a>
         </div>
     </header>
 
@@ -62,14 +77,14 @@
                 <p>Промышленное изготовление деталей, корпусов и технологической оснастки в Алматы. Гарантия точности и соблюдения сроков для вашего предприятия.</p>
                 
                 <div style="margin-top: 35px;">
-                    <a href="https://wa.me/77082639395?text=Здравствуйте!%20Хочу%20отправить%20чертеж%20на%20расчет." class="btn btn-wa" target="_blank" style="padding: 18px 30px; font-size: 0.9rem;">ОТПРАВИТЬ ЧЕРТЁЖ НА РАСЧЁТ</a>
+                    <a href="https://wa.me/77082639395?text=Здравствуйте!%20Хочу%20отправить%20чертеж%20на%20расчет." class="btn btn-wa" target="_blank" style="padding: 18px 30px; font-size: 0.9rem;" onclick="gtag_report_conversion()">ОТПРАВИТЬ ЧЕРТЁЖ НА РАСЧЁТ</a>
                     <span class="cta-note">* Для расчёта приложите чертёж/3D-модель, укажите материал и количество.</span>
                 </div>
             </div>
             
             <div class="hero-image">
                 <div class="hero-image-window">
-                    <img src="cnc.webp" alt="">
+                    <img src="cnc.webp" alt="Промышленный фрезерный станок с ЧПУ">
                 </div>
             </div>
         </div>
@@ -79,19 +94,19 @@
     <section class="advantages-section">
         <div class="advantages-grid">
             <div class="advantage-item">
-                <h4>Контрактное производство</h4>
+                <h3>Контрактное производство</h3>
                 <p>Изготовление по вашим чертежам, а также разработка КД и 3D-моделей с нуля.</p>
             </div>
             <div class="advantage-item">
-                <h4>Высокая точность</h4>
+                <h3>Высокая точность</h3>
                 <p>Точность обработки — до 0,01 мм.</p>
             </div>
             <div class="advantage-item">
-                <h4>Любая серийность</h4>
+                <h3>Любая серийность</h3>
                 <p>От единичных прототипов (НИОКР) до средних и крупных серийных партий.</p>
             </div>
             <div class="advantage-item">
-                <h4>B2B-производство</h4>
+                <h3>B2B-производство</h3>
                 <p>Ориентация на юр. лиц, официальный договор, ЭСФ и закрывающие документы.</p>
             </div>
         </div>
@@ -140,23 +155,23 @@
         <h2 class="section-title">Как мы работаем</h2>
         <div class="process-steps">
             <div class="step">
-                <div class="step-num"></div>
-                <h4>Чертёж</h4>
+                <div class="step-num">1</div>
+                <h3>Чертёж</h3>
                 <p>Вы отправляете чертёж или 3D-модель детали в WhatsApp.</p>
             </div>
             <div class="step">
-                <div class="step-num"></div>
-                <h4>Анализ и расчёт</h4>
+                <div class="step-num">2</div>
+                <h3>Анализ и расчёт</h3>
                 <p>Мы оцениваем технологичность, сроки и формируем стоимость.</p>
             </div>
             <div class="step">
-                <div class="step-num"></div>
-                <h4>Производство</h4>
+                <div class="step-num">3</div>
+                <h3>Производство</h3>
                 <p>Механическая ЧПУ-обработка партии согласно вашим допускам.</p>
             </div>
             <div class="step">
-                <div class="step-num"></div>
-                <h4>Контроль и передача</h4>
+                <div class="step-num">4</div>
+                <h3>Контроль и передача</h3>
                 <p>Проверка соответствия деталей требованиям заказа и передача с закрывающими документами.</p>
             </div>
         </div>
@@ -166,10 +181,10 @@
     <section class="portfolio-section">
         <h2 class="section-title">Примеры работ</h2>
         <div class="portfolio-grid">
-            <div class="portfolio-item"><img src="cnc-milling-service.webp" alt="Пример"></div>
-            <div class="portfolio-item"><img src="cnc-milling-service1.webp" alt="Пример"></div>
-            <div class="portfolio-item"><img src="cnc-milling-service2.webp" alt="Пример"></div>
-            <div class="portfolio-item"><img src="cnc-milling-service3.webp" alt="Пример"></div>
+            <div class="portfolio-item"><img src="cnc-milling-service.webp" alt="Пример фрезерной обработки металла"></div>
+            <div class="portfolio-item"><img src="cnc-milling-service1.webp" alt="Пример фрезерной обработки металла"></div>
+            <div class="portfolio-item"><img src="cnc-milling-service2.webp" alt="Пример фрезерной обработки металла"></div>
+            <div class="portfolio-item"><img src="cnc-milling-service3.webp" alt="Пример фрезерной обработки металла"></div>
         </div>
     </section>
 
@@ -178,19 +193,19 @@
         <h2 class="section-title">Производственные возможности</h2>
         <div class="capabilities-grid">
             <div class="capability-card">
-                <h4>Виды обработки</h4>
+                <h3>Виды обработки</h3>
                 <p>Фрезерная, токарная и шлифовальная обработка на станках с ЧПУ.</p>
             </div>
             <div class="capability-card">
-                <h4>Материалы</h4>
+                <h3>Материалы</h3>
                 <p>Углеродистая и легированная сталь, нержавеющая сталь, дюралюминий, алюминий, латунь, конструкционные пластики (капролон, фторопласт).</p>
             </div>
             <div class="capability-card">
-                <h4>Сложность деталей </h4>
+                <h3>Сложность деталей</h3>
                 <p>Изготовление деталей сложной геометрии.</p>
             </div>
             <div class="capability-card">
-                <h4>Серийность</h4>
+                <h3>Серийность</h3>
                 <p>От единичных экземпляров (прототипов) до мелких и средних серий (от 1 до 1000+ штук).</p>
             </div>
         </div>
@@ -205,9 +220,9 @@
             <div>
                 <h3>НАШИ КОНТАКТЫ</h3>
                 <p>📞 <strong>Телефон:</strong> <a href="tel:+77082639395">+7 (708) 263-93-95</a></p>
-                <p>💬 <strong>WhatsApp:</strong> <a href="https://wa.me/77082639395?text=Здравствуйте!%20Хочу%20отправить%20чертеж%20на%20расчет." target="_blank">+7 (708) 263-93-95</a></p>
+                <p>💬 <strong>WhatsApp:</strong> <a href="https://wa.me/77082639395?text=Здравствуйте!%20Хочу%20отправить%20чертеж%20на%20расчет." target="_blank" rel="noopener noreferrer">+7 (708) 263-93-95</a></p>
                 <p>📍 <strong>Адрес:</strong> г. Алматы, пр. Гагарина, 93а (РПИК Дауыр, 4 этаж)</p>
-                <p style="margin-top: 15px;"><a href="https://go.2gis.com/hn00N" target="_blank" style="color: var(--text-grey); font-size: 0.8rem;">📍 Открыть компанию в 2GIS</a></p>
+                <p style="margin-top: 15px;"><a href="https://go.2gis.com/hn00N" target="_blank" rel="noopener noreferrer" style="color: var(--text-grey); font-size: 0.8rem;">📍 Открыть компанию в 2GIS</a></p>
             </div>
         </div>
     </footer>
