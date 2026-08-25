@@ -6,6 +6,7 @@
     <title>Услуга | CNC Fabrication</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18407514352"></script>
     <script>
@@ -25,7 +26,7 @@
           }
         };
         gtag('event', 'conversion', {
-            'send_to': 'AW-18407514352/ZXeiCI7e8eYCEPDBsclE',
+            'send_to': 'AW-18407514352/ZXeiCI7e8eYcEPDBsclE',
             'event_callback': callback
         });
         return false;
@@ -120,7 +121,7 @@
             <div>
                 <h3>НАШИ КОНТАКТЫ</h3>
                 <p>📞 <strong>Телефон:</strong> <a href="tel:+77082639395">+7 (708) 263-93-95</a></p>
-                <p>💬 <strong>WhatsApp:</strong> <a href="https://wa.me/77082639395?text=Здравствуйте!%20Хочу%20отправить%20чертеж%20на%20расчет." target="_blank" rel="noopener noreferrer">+7 (708) 263-93-95</a></p>
+                <p>💬 <strong>WhatsApp:</strong> <a href="https://wa.me/77082639395?text=Здравствуйте!%20Хочу%20отправить%20чертеж%20на%20расчет." target="_blank" rel="noopener noreferrer" onclick="gtag_report_conversion()">+7 (708) 263-93-95</a></p>
                 <p>📍 <strong>Адрес:</strong> г. Алматы, пр. Гагарина, 93а (РПИК Дауыр, 4 этаж)</p>
                 <p style="margin-top: 15px;"><a href="https://go.2gis.com/hn00N" target="_blank" rel="noopener noreferrer" style="color: var(--text-grey); font-size: 0.8rem;">📍 Открыть компанию в 2GIS</a></p>
             </div>
@@ -242,12 +243,11 @@
                 </div>
             `).join('');
 
-            // Настройка кнопки WhatsApp
+            // Настройка кнопки WhatsApp с обработчиком конверсии
             const waText = `Здравствуйте! Меня интересует услуга: ${service.title}. Хочу отправить проект на расчет.`;
-            document.getElementById('waBtn').href = `https://wa.me/${MY_PHONE}?text=${encodeURIComponent(waText)}`;
-            
-            // Применяем onclick к динамически сгенерированной кнопке для корректного отслеживания конверсии
-            document.getElementById('waBtn').setAttribute('onclick', 'gtag_report_conversion()');
+            const waBtn = document.getElementById('waBtn');
+            waBtn.href = `https://wa.me/${MY_PHONE}?text=${encodeURIComponent(waText)}`;
+            waBtn.setAttribute('onclick', 'gtag_report_conversion()');
         }
 
         // Инициализация при загрузке
